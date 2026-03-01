@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PermohonanController;
-
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('home');
@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/berita', [BeritaController::class, 'store'])->name('berita');;
     Route::get('/berita/edit{}', [BeritaController::class, 'edit'])->name('berita.edit');
     Route::patch('/berita', [BeritaController::class, 'editproses']);
+    Route::get('/keluar', [UserController::class, 'logout'])->name('logout');
 });
 
 use Illuminate\Support\Facades\Hash;
